@@ -1,0 +1,284 @@
+html {
+  min-width: 320px;
+}
+
+body {
+  font-size: $body-font-size;
+}
+
+* {
+  outline: none !important;
+}
+
+.clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/************************
+Utility classes
+************************/
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+.relative {
+  position: relative;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.radiused {
+  border-radius: $global-radius;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.color-white {
+  color: $white;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.color-alert {
+  color: $alert-color !important;
+}
+
+.color-success {
+  color: $success-color !important;
+}
+
+.color-warning {
+  color: $warning-color !important;
+}
+
+.color-light-gray {
+  color: $light-gray;
+}
+
+.color-gray {
+  color: $medium-gray;
+}
+
+.color-dark-gray {
+  color: $dark-gray;
+}
+
+.color-black {
+  color: $black;
+}
+
+.bold {
+  font-family: $header-font-family;
+}
+
+.text-normal {
+  font-family: $body-font-family;
+}
+
+.block-color-gray {
+  p {
+    color: $dark-gray;
+  }
+}
+
+.hover-underline:hover {
+  text-underline: currentColor;
+}
+
+.line-breake-inline {
+  display: inline-block;
+  width: rem-calc(4);
+}
+
+.disabled-block {
+  @include disabled-block;
+}
+
+.transition {
+  @include transition;
+}
+
+/*****************
+** Contextual backgrounds
+*****************/
+.bg-success {
+  background: $success-color;
+  color: $white;
+}
+
+.bg-warning {
+  background: $warning-color;
+  color: $white;
+}
+
+.bg-danger {
+  background: $alert-color;
+  color: $white;
+}
+
+.bg-primary {
+  background: $primary-color;
+  color: $white;
+}
+
+.bg-light-gray {
+  background: $light-gray;
+}
+
+/*****************
+** Auto complete
+*****************/
+// ms-fix for x and reveal
+::-ms-clear {
+  width: 20px;
+  height: 20px;
+}
+
+::-ms-reveal {
+  width: 20px;
+  height: 20px;
+}
+
+// Changes autocomplete styles in Chrome because they don't work properly with material ui.
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: white !important;
+  -webkit-text-fill-color: $form-input-color;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+// remove red border on firefox.
+input:invalid {
+  box-shadow: none;
+}
+
+.scroll-content {
+  overflow: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: rem-calc(5);
+    background: $light-gray;
+    border-radius: rem-calc(5);
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: rem-calc(5);
+    background: $medium-gray;
+  }
+
+  &.thin-scroll {
+    &::-webkit-scrollbar {
+      width: rem-calc(3);
+    }
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.bb {
+  border-bottom: 1px solid $light-gray;
+}
+
+.bordered {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $light-gray;
+  .primary {
+    border-color: $primary-color;
+  }
+}
+
+.block {
+  display: block;
+}
+
+.divider {
+  height: rem-calc(2);
+  background-color: $light-gray;
+  width: 100%;
+  display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.fade-in {
+  animation: fadeIn .4s ease-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+small {
+  font-size: .75em;
+  display: block;
+}

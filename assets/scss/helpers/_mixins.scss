@@ -1,0 +1,110 @@
+@mixin radius($rad) {
+  border-radius: $rad;
+  -webkit-border-radius: $rad;
+  -moz-border-radius: $rad;
+}
+
+@mixin disabled-block {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: .5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@mixin form-input-base {
+  font-weight: 400;
+  font-family: $body-font-family;
+  background-color: $color-white;
+  color: $color-font-input;
+  border: 1px solid $form-input-border-color;
+  @include border-radius($form-input-radius);
+  padding: $form-input-padding;
+  font-size: $form-input-font-size;
+  line-height: rem-calc(16);
+}
+
+// breakpoints
+$mobile: rem-calc(767); // mobile 767px and less
+$tablet: rem-calc(1023); // tablet 1023px {$desktop + 1} and less
+$desktop: rem-calc(1199); // tablet 1199px {$desktop-large + 1} and less
+
+// @include prefix(transform, translateY(-50%));
+// @include prefix(transition, (all 0.3s linear));
+@mixin prefix($name, $argument) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+// @include transform($trans-x, $trans-y, $rotate);
+@mixin transform($trans-x, $trans-y, $rotate) {
+  -moz-transform: translate($trans-x, $trans-y) rotate($rotate);
+  -o-transform: translate($trans-x, $trans-y) rotate($rotate);
+  -ms-transform: translate($trans-x, $trans-y) rotate($rotate);
+  -webkit-transform: translate($trans-x, $trans-y) rotate($rotate);
+  transform: translate($trans-x, $trans-y) rotate($rotate);
+}
+
+// @include border-radius(5px);
+@mixin border-radius($border-width: 5px) {
+  border-radius: $border-width;
+}
+
+// @mixin box-shadow(1px, 2px, 1px, #000, $inset: false);
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &.placeholder {
+    @content;
+  }
+}
+
+@mixin fonts-include($font-name, $font-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: "#{$font-name}";
+    font-weight: $font-weight;
+    font-style: $font-style;
+
+    src: url('/fonts/#{$font-path}.eot');
+    src: url('/fonts/#{$font-path}.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/#{$font-path}.woff') format('woff'),
+    url("/fonts/#{$font-path}.woff2") format("woff2"),
+    url('/fonts/#{$font-path}.ttf') format('truetype'),
+    url('/fonts/#{$font-path}.svg##{$font-name}') format('svg');
+  }
+}

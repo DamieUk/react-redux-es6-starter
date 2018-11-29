@@ -1,0 +1,232 @@
+.progress {
+  display: block;
+  position: relative;
+  background: $light-gray;
+  width: 100%;
+  height: rem-calc(5);
+  .progress-bar {
+    @include transition(width .35s ease-in-out);
+    width: 0;
+    height: rem-calc(5);
+    background: $primary-color;
+  }
+}
+
+.progress-dots {
+  text-align: center;
+  .progress-dot {
+    display: inline-block;
+    width: rem-calc(7);
+    height: rem-calc(7);
+    background-color: $medium-gray;
+    border-radius: 50%;
+
+    &:not(:last-of-type) {
+      margin-right: rem-calc(7);
+    }
+
+    &.active {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.dp-linear-progress {
+  background: lighten($primary-color, 59%);
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  -webkit-animation: start 0.3s ease-in;
+  animation: start 0.3s ease-in;
+  width: 100%;
+  display: block;
+}
+
+.dp-linear-progress .bar {
+  position: absolute;
+  background: $primary-color;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.dp-linear-progress .bar1 {
+  -webkit-animation: progressLinearMovement 2.5s infinite;
+  animation: progressLinearMovement 2.5s infinite;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+}
+
+.dp-linear-progress .bar2 {
+  left: -100%;
+  -webkit-animation: progressLinearMovement 2.5s infinite;
+  animation: progressLinearMovement 2.5s infinite;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes growBar2 {
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
+    animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
+    -webkit-transform: scaleX(0.1);
+    transform: scaleX(0.1);
+  }
+  19.15% {
+    -webkit-animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
+    animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
+    -webkit-transform: scaleX(0.57);
+    transform: scaleX(0.57);
+  }
+  44.15% {
+    -webkit-animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
+    animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
+    -webkit-transform: scaleX(0.91);
+    transform: scaleX(0.91);
+  }
+  100% {
+    -webkit-transform: scaleX(0.1);
+    transform: scaleX(0.1);
+  }
+}
+
+@keyframes growBar2 {
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
+    animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
+    -webkit-transform: scaleX(0.1);
+    transform: scaleX(0.1);
+  }
+  19.15% {
+    -webkit-animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
+    animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
+    -webkit-transform: scaleX(0.57);
+    transform: scaleX(0.57);
+  }
+  44.15% {
+    -webkit-animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
+    animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
+    -webkit-transform: scaleX(0.91);
+    transform: scaleX(0.91);
+  }
+  100% {
+    -webkit-transform: scaleX(0.1);
+    transform: scaleX(0.1);
+  }
+}
+
+@-webkit-keyframes moveBar2 {
+  0% {
+    left: -54.88889%;
+    -webkit-animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40968);
+    animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40968);
+  }
+  25% {
+    left: -17.25%;
+    -webkit-animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73372);
+    animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73372);
+  }
+  48.35% {
+    left: 29.5%;
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0.62703, 0.6, 0.90203);
+    animation-timing-function: cubic-bezier(0.4, 0.62703, 0.6, 0.90203);
+  }
+  100% {
+    left: 117.38889%;
+  }
+}
+
+@keyframes moveBar2 {
+  0% {
+    left: -54.88889%;
+    -webkit-animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40968);
+    animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40968);
+  }
+  25% {
+    left: -17.25%;
+    -webkit-animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73372);
+    animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73372);
+  }
+  48.35% {
+    left: 29.5%;
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0.62703, 0.6, 0.90203);
+    animation-timing-function: cubic-bezier(0.4, 0.62703, 0.6, 0.90203);
+  }
+  100% {
+    left: 117.38889%;
+  }
+}
+
+@-webkit-keyframes start {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes start {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 20px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes end {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 2px;
+    opacity: 1;
+  }
+}
+
+@keyframes end {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 2px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes progressLinearMovement {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes progressLinearMovement {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+

@@ -1,0 +1,36 @@
+.sidebar-navigation {
+  padding: rem-calc(15);
+  display: none;
+  position: absolute;
+  height: 100vh;
+  background-color: $white;
+
+  .logo {
+    margin-bottom: rem-calc(70);
+  }
+
+  @media #{$medium-up} {
+    padding: rem-calc(40);
+    display: block;
+    width: rem-calc(235);
+  }
+
+  .navigation-item {
+    margin-bottom: rem-calc(45);
+    font-size: rem-calc(15);
+
+    img {
+      width: rem-calc(21);
+      margin-right: rem-calc(18);
+    }
+
+    a {
+      color: $dark-gray;
+      @include transition();
+    }
+
+    .active {
+      color: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.dp-modal {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+
+  .dp-icon-modal-close {
+    position: absolute;
+    right: rem-calc(25);
+    top: rem-calc(25);
+    z-index: 2;
+    cursor: pointer;
+    @include transition();
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-footer {
+    border-top: rem-calc(1) solid $light-gray;
+    padding: rem-calc(10) rem-calc(20);
+    background-color: $extra-light-gray;
+    border-bottom-left-radius: $global-radius;
+    border-bottom-right-radius: $global-radius;
+
+    & > button:not(:last-of-type) {
+      margin-right: rem-calc(10);
+    }
+
+    &-center {
+      @include justify-content(center);
+    }
+
+    &-left {
+      @include justify-content(flex-start);
+    }
+
+    &-right {
+      @include justify-content(flex-end);
+    }
+  }
+}
+
+[aria-labelledby="dp-modal"] {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.entering-modal {
+  animation: showModalCard .2s ease-in-out;
+}
+
+.exiting-modal {
+  animation: hideModalCard .15s ease-in-out;
+}

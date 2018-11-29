@@ -1,0 +1,13 @@
+.show-for-mobile {
+  display: block;
+  @media #{$medium-up} {
+    display: none !important;
+  }
+}
+
+.show-for-desktop {
+  display: none;
+  @media #{$medium-up} {
+    display: block !important;
+  }
+}

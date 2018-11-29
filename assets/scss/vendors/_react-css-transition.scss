@@ -1,0 +1,20 @@
+.roll-down-leave {
+  opacity: 1;
+  height: rem-calc(50);
+}
+
+.roll-down-leave.roll-down-leave-active {
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0;
+  transition: 250ms;
+}
+
+.global-loader-leave {
+  opacity: 1;
+}
+
+.global-loader-leave.global-loader-leave-active {
+  opacity: 0;
+  transition: 250ms;
+}
